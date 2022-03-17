@@ -1,0 +1,291 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+static int ivalue=3;
+int i=0;
+
+struct Library
+{
+    char Author[30];
+    int Bookid;
+    char Title[30];
+    int issue;
+
+}Obj[10];
+
+void BookInfo();                                    //25
+void BookDetail();                                 //42
+void AddNewBook();                                //52
+void AuthorOrTitle();                             //68
+void TotalBook();                                  //130
+void IssueBook();                                   //140
+void Exit();                                         //232
+
+void BookInfo()
+{
+    for(i=0;i<ivalue;i++)
+    {
+        printf("\n\t\tEnter Book id:");
+        scanf("%d",&Obj[i].Bookid);
+
+        printf("\t\tEnter Name of Author:");
+        scanf("%s",&Obj[i].Author);
+
+        printf("\t\tEnter Book Title:");
+        scanf("%s",&Obj[i].Title);
+
+        Obj[i].issue=0;
+    }
+}
+
+void BookDetail()
+{
+    for(i=0;i<ivalue;i++)
+    {
+        printf("\n\n\t\tBook id:%d",Obj[i].Bookid);
+        printf("\n\t\tAuthor:%s",Obj[i].Author);
+        printf("\n\t\tTitle:%s",Obj[i].Title);
+    }
+}
+
+void AddNewBook()
+{
+    printf("\n\n\t\tEnter Book id:");
+    scanf("%d",&Obj[ivalue].Bookid);
+
+    printf("\t\tEnter Name of Author:");
+    scanf("%s",&Obj[ivalue].Author);
+
+    printf("\t\tEnter Book Title:");
+    scanf("%s",&Obj[ivalue].Title);
+
+    Obj[ivalue].issue=0;
+
+    ivalue++;
+}
+
+void AuthorOrTitle()
+{
+    char BookAT[20];
+    int A=0;
+    int B=0;
+    int C=0;
+    int j=0;
+    int len=0;
+    int count=0;
+    int counter=0;
+
+    printf("\n\t\tEnter a Name of Author or Title of Book:");
+    scanf("%s",&BookAT);
+
+    len=strlen(BookAT);
+
+    for(A=0;A<ivalue;A++)
+    {
+        counter=0;
+        count=0;
+        for(i=0,j=0;i<len,j<len;j++,i++)
+        {
+            if(BookAT[i]==Obj[A].Author[i])
+            {
+//                printf("Successful\n");
+                counter++;
+            }
+
+            if(BookAT[i]==Obj[A].Title[i])
+            {
+//                printf("Successful\n");
+                count++;
+            }
+            C++;
+        }
+
+        if(counter==C )
+        {
+            //printf("\n\n\t\t\t\tBook with same Author!!!\n\n");
+            printf("\n\n\t\tBook id:%d",Obj[A].Bookid);
+            printf("\n\t\tAuthor:%s",Obj[A].Author);
+            printf("\n\t\tTitle:%s",Obj[A].Title);
+            B=1;
+        }
+        if(count==C)
+        {
+           //printf("\n\n\t\t\t\tBook with same Title!!!\n\n");
+            printf("\n\n\t\tBook id:%d",Obj[A].Bookid);
+            printf("\n\t\tAuthor:%s",Obj[A].Author);
+            printf("\n\t\tTitle:%s",Obj[A].Title);
+            B=1;
+        }
+
+        C=0;
+    }
+
+    if(B==0)
+    {
+        printf("\n\t\t\tThis Book is not in our Library!!!\n");
+    }
+}
+
+void TotalBook()
+{
+    printf("\n\n\t\t\t\t!!!There are the %d Book in our Library!!!\n\n",ivalue);
+
+    for(i=0;i<ivalue;i++)
+    {
+        printf("\n\t\t%d :%s\n",i+1,Obj[i].Title);
+    }
+}
+
+void IssueBook()
+{
+    int ID=0;
+    int Flag=0;
+    int Retry=0;
+    int TakeBook=0;
+    int Z=0;
+
+    //printf("When in DOUBT Go to THE Library!!!");
+    printf("\n\n\t\t\t\t!!! Reading Lights UP YOUR Mind !!!");
+
+    Once:
+
+    printf("\n\n\n\t\tEnter a Book id that you want issue:");
+    scanf("%d",&ID);
+
+    for(i=0;i<ivalue;i++)
+    {
+        if(Obj[i].Bookid==ID)
+        {
+            Z=1;
+
+            if(Obj[i].issue==1)
+            {
+                printf("\n\n\t\t!!! This Book is not Available in Library !!!");
+            }
+
+            if(Obj[i].issue==0)
+            {
+
+                printf("\n\t\tBook id:%d",Obj[i].Bookid);
+                printf("\n\t\tAuthor:%s",Obj[i].Author);
+                printf("\n\t\tTitle:%s",Obj[i].Title);
+                Flag=1;
+
+                RE:
+
+                printf("\n\n\t\t 1.Take a Book\n\t\t 2.Select Another Book\n\t\t 3.Exit:");
+                scanf("%d",&TakeBook);
+
+                switch(TakeBook)
+                {
+                    case 1:
+                        printf("\n\n\t\tSuccessful!!!");
+                        Obj[i].issue=1;
+                        break;
+
+                    case 2:
+                        printf("\n\n\t\tTry Another Book in Library!!!");
+                        goto Once;
+                        break;
+
+                    case 3:
+                        Exit();
+                        break;
+
+                    default:
+                        printf("\n\n\t\tInvalid Choice!!!");
+                        goto RE;
+                        break;
+                }
+            }
+
+        }
+    }
+    if(Z==0)
+    {
+        printf("\n\n\t\tWrong Book id !!!");
+
+        OnceMore:
+
+        printf("\n\n\t\t 1.Try Again\n\t\t 2.Exit");
+        scanf("%d",&Retry);
+
+        switch(Retry)
+        {
+            case 1:
+                  goto Once;
+                  break;
+
+            case 2:
+                  Exit();
+                  break;
+
+            default:
+                  printf("\n\n\t\tInvalid Choice!!!");
+                  goto OnceMore;
+                  break;
+        }
+    }
+}
+
+void Exit()
+{
+    printf("\n\n\n\t\t\t\t!!! Knowledge is free at Library Just bring your own Container !!!");
+    printf("\n\n\n\t\t\t\t\t!!! Reading is Dreaming With OPEN EYES !!!");
+    printf("\n\n\n\t\t\t\t\t\t!!! Thanks For Coming !!!");
+}
+
+int main()
+{
+
+    int Choice=0;
+
+    BookInfo();
+
+    printf("\n\n\t\t\t\t\t!!!WELLCOME TO LIBRARY!!!");
+
+    do
+    {
+        Retry:
+
+        printf("\n\n\n\t\t1.Book Information\n\t\t2.Add a new Book\n\t\t3. Books with particular Author or particular Title\n\t\t4.Total Books in Library\n\t\t5.Issue a Book\n\t\t6.Exit");
+        printf("\n\n\t\tEnter your choice:");
+        scanf("%d",&Choice);
+
+        switch(Choice)
+        {
+
+            case 1:
+                BookDetail();
+                break;
+
+            case 2:
+                AddNewBook();
+                break;
+
+            case 3:
+                AuthorOrTitle();
+                break;
+
+            case 4:
+                TotalBook();
+                break;
+
+            case 5:
+                IssueBook();
+                break;
+
+            case 6:
+                Exit();
+                break;
+
+            default:
+                printf("Invalid Choice!!!");
+                goto Retry;
+                break;
+        }
+
+    } while (Choice != 6);
+
+    return 0;
+}
