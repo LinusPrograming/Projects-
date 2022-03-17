@@ -1,0 +1,559 @@
+#include <iostream>
+using namespace std;
+
+int Amount=0;
+int BankFund=100000;
+long amt=0;
+long amt2=0;
+
+class Bank
+{
+	private:
+	    int acno;
+	    char name[30];
+	    long balance;
+
+
+	public:
+
+
+	    void OpenAccount()
+	    {
+		cout << "Enter Account Number: ";
+		cin >> acno;
+		cout << "Enter Name: ";
+		cin >> name;
+		cout << "Enter  Balance: ";
+		cin >> balance;
+	    }
+	    void ShowAccount()
+	    {
+		  cout << "Account Number: " << acno << endl;
+		cout << "Name: " << name << endl;
+		cout << "Balance: " << balance << endl;
+	    }
+	    void ShowAdmin()
+	    {
+
+
+            cout << "Account Number: " << acno << endl;
+            cout << "Name: " << name << endl;
+            cout << "Balance: " << balance << endl;
+            cout<<"Recentaly Deposited Amount: "<<amt<<endl;
+            cout<<"Recentaly Withdrawed Amount: "<<amt2<<endl;
+            cout<<"Loan Amount with interest:"<<Amount<<endl;
+	    }
+	    void Deposit()
+	    {
+
+		cout << "Enter Amount U want to deposit? ";
+		cin >> amt;
+		balance = balance + amt;
+		BankFund=BankFund+amt;
+	    }
+	    void Withdrawal()
+	    {
+
+            cout << "Enter Amount U want to withdraw? ";
+            cin >> amt2;
+             if (amt2 <= balance)
+             {
+                balance = balance - amt2;
+                BankFund=BankFund+amt2;
+             }
+            else
+            {
+                cout << "Less Balance..." << endl;
+            }
+
+	    }
+
+
+	    int Search(int);
+	    int AdminSearch(int);
+
+};
+
+class Loan :public Bank
+{
+
+    int Retime;
+    int Amount2;
+    int Hafta;
+
+    public:
+
+        void  Home()
+        {
+            cout<<"Enter the amount of loan you want to take :";
+            cin>>Amount;
+
+            if(Amount<=BankFund)
+            {
+                BankFund=BankFund-Amount;
+
+                cout<<"\n\nYou have a 14% interest on the Home loan!!!"<<endl;
+
+                Amount2=Amount*14;
+                Amount2=Amount2/100;
+                Amount=Amount+Amount2;
+
+                Return:
+
+                cout<<"Enter the period for Loan recovery \n1.1 year\n2. 2 Year\n3. 3 Year"<<endl;
+                cin>>Retime;
+
+                switch(Retime)
+                {
+                    case 1:
+                        cout<<"EMI for 1 Year is ";
+
+                        Hafta=Amount/12;
+
+                        cout<<Hafta<<" Per month"<<endl;
+                        break;
+
+                    case 2:
+                        cout<<"EMI for 2 Year is ";
+
+                        Hafta=Amount/24;
+
+                        cout<<Hafta<<" Per month"<<endl;
+                        break;
+
+                    case 3:
+                        cout<<"EMI for 3 Year is ";
+
+                        Hafta=Amount/36;
+
+                        cout<<Hafta<<" Per month"<<endl;
+                        break;
+
+                    default:
+                        cout<<"\n\nInvalid Choice!!!"<<endl;
+
+                        goto Return;
+                        break;
+                }
+
+            Pass:
+
+             cout<<"1.Take a loan\n2.Re check the EMI"<<endl;
+             cin>>Retime;
+
+             switch(Retime)
+             {
+                case 1:
+                    cout<<"\n\nHome Loan amount with interest : "<<Amount;
+                    cout<<"\nEMI for home loan : "<<Hafta<<" Per month"<<endl;
+
+                    break;
+
+                case 2:
+                    goto Return;
+                    break;
+
+                default:
+                    cout<<"\nInvalid Choice!!!"<<endl;
+                    goto Pass;
+
+             }
+                cout<<"\n\nThanks for visit!!!";
+            }
+        }
+
+        void Car()
+        {
+            cout<<"Enter the amount of loan you want to take :";
+            cin>>Amount;
+
+            cout<<"\n\nYou have a 12% interest on the Car loan!!!"<<endl;
+
+            Amount2=Amount*12;
+            Amount2=Amount2/100;
+            Amount=Amount+Amount2;
+
+            Return:
+
+            cout<<"Enter the period for Loan recovery \n1.1year\n2. 2 Year\n3. 3 Year"<<endl;
+            cin>>Retime;
+
+            switch(Retime)
+            {
+                case 1:
+                    cout<<"EMI for 1 Year is ";
+
+                    Hafta=Amount/12;
+
+                    cout<<Hafta<<" Per month"<<endl;
+                    break;
+
+                 case 2:
+                    cout<<"EMI for 2 Year is ";
+
+                    Hafta=Amount/24;
+
+                    cout<<Hafta<<" Per month"<<endl;
+                    break;
+
+                 case 3:
+                    cout<<"EMI for 3 Year is ";
+
+                    Hafta=Amount/36;
+
+                    cout<<Hafta<<" Per month"<<endl;
+                    break;
+
+                default:
+                    cout<<"\n\nInvalid Choice!!!"<<endl;
+
+                    goto Return;
+                    break;
+            }
+
+            Pass:
+
+             cout<<"1.Take a loan\n2.Re check the EMI"<<endl;
+             cin>>Retime;
+
+             switch(Retime)
+             {
+                case 1:
+                    cout<<"\n\nCar Loan amount with interest : "<<Amount;
+                    cout<<"\nEMI for Car loan : "<<Hafta<<" Per month"<<endl;
+
+                    break;
+
+                case 2:
+                    goto Return;
+                    break;
+
+                default:
+                    cout<<"\nInvalid Choice!!!"<<endl;
+                    goto Pass;
+
+             }
+
+             cout<<"\n\nThanks for visit!!!";
+
+
+        }
+
+        void Education()
+        {
+cout<<"Enter the amount of loan you want to take :";
+            cin>>Amount;
+
+            cout<<"\n\nYou have a 12% interest on the Education loan!!!"<<endl;
+
+            Amount2=Amount*8;
+            Amount2=Amount2/100;
+            Amount=Amount+Amount2;
+
+            Return:
+
+            cout<<"Enter the period for Loan recovery \n1.1 year\n2. 2 Year\n3. 3 Year"<<endl;
+            cin>>Retime;
+
+            switch(Retime)
+            {
+                case 1:
+                    cout<<"EMI for 1 Year is ";
+
+                    Hafta=Amount/12;
+
+                    cout<<Hafta<<" Per month"<<endl;
+                    break;
+
+                 case 2:
+                    cout<<"EMI for 2 Year is ";
+
+                    Hafta=Amount/24;
+
+                    cout<<Hafta<<" Per month"<<endl;
+                    break;
+
+                 case 3:
+                    cout<<"EMI for 3 Year is ";
+
+                    Hafta=Amount/36;
+
+                    cout<<Hafta<<" Per month"<<endl;
+                    break;
+
+                default:
+                    cout<<"\n\nInvalid Choice!!!"<<endl;
+
+                    goto Return;
+                    break;
+            }
+
+            Pass:
+
+             cout<<"1.Take a loan\n2.Re check the EMI"<<endl;
+             cin>>Retime;
+
+             switch(Retime)
+             {
+                case 1:
+                    cout<<"\n\n Education Loan amount with interest : "<<Amount;
+                    cout<<"\nEMI for Education loan : "<<Hafta<<" Per month"<<endl;
+
+                    break;
+
+                case 2:
+                    goto Return;
+                    break;
+
+                default:
+                    cout<<"\nInvalid Choice!!!"<<endl;
+                    goto Pass;
+
+             }
+
+             cout<<"\n\nThanks for visit!!!";
+
+        }
+
+
+};
+
+int Bank::Search(int a)
+{
+    if (acno == a) {
+        ShowAccount();
+        return (1);
+    }
+    return (0);
+}
+int Bank::AdminSearch(int a)
+{
+    if (acno == a) {
+        ShowAdmin();
+        //return (1);
+    }
+    return (0);
+}
+
+int main()
+{
+    Bank C[3];
+    Loan L1[3];
+
+    int Login=3003714;
+    int keyword=3003714;
+
+    int found = 0, a, ch, i,Lvalue;
+
+    for (i = 0; i <= 2; i++)
+    {
+        C[i].OpenAccount();
+    }
+
+    do
+    {
+
+        cout << "\n\n1:Display All\n2:By Account No\n3:Deposit\n4:Withdraw\n5:Exit\n6:Loan\n7:Admin" << endl;
+
+        cout << "Please input your choice: ";
+        cin >> ch;
+
+        switch (ch)
+        {
+        	case 1:
+            		for (i = 0; i <= 2; i++)
+                    {
+               			C[i].ShowAccount();
+                    }
+                    break;
+
+        	case 2:
+            		cout << "Account Number? ";
+            		cin >> a;
+
+            		for (i = 0; i <= 2; i++)
+                    {
+                		found = C[i].Search(a);
+
+                		if (found)
+                    		break;
+            		}
+
+            		if (!found)
+                	cout << "Record Not Found" << endl;
+            		break;
+
+        	case 3:
+            		cout << "Account Number To Deposit Amount? ";
+            		cin >> a;
+
+            		for (i = 0; i <= 2; i++)
+                    {
+                		found = C[i].Search(a);
+
+                		if (found)
+                        {
+                    			C[i].Deposit();
+                    			break;
+
+                		}
+            		}
+
+            		if (!found)
+                	cout << "Record Not Found" << endl;
+
+            		break;
+
+        	case 4:
+            		cout << "Account Number To Withdraw Amount? ";
+            		cin >> a;
+
+            		for (i = 0; i <= 2; i++)
+                    {
+                		found = C[i].Search(a);
+
+               			if (found)
+                        {
+                    			C[i].Withdrawal();
+
+                    			break;
+                		}
+            		}
+
+            		if (!found)
+                	cout << "Record Not Found" << endl;
+
+            		break;
+        	case 5:
+            		cout << "Have a nice day" << endl;
+
+            		break;
+            case 6:
+                    Re:
+
+                    cout<<"Enter the Account Number ";
+                    cin>>a;
+
+                    cout << "Which type of loan you want to take \n1.Home\n2.Car\n3.Education"<<endl;
+                    cin>>Lvalue;
+
+                    switch(Lvalue)
+                    {
+                        case 1:
+                            for (i = 0; i <= 2; i++)
+                            {
+                                found = C[i].Search(a);
+                                if (found)
+                                break;
+                            }
+                            L1[a].Home();
+                            break;
+
+                        case 2:
+                            for (i = 0; i <= 2; i++)
+                            {
+                                found = C[i].Search(a);
+                                if (found)
+                                break;
+                            }
+                            L1[a].Car();
+                            break;
+
+                        case 3:
+                             for (i = 0; i <= 2; i++)
+                            {
+                                found = C[i].Search(a);
+                                if (found)
+                                break;
+                            }
+                            L1[a].Education();
+                            break;
+
+                        default:
+                            cout<<"\n\nInvalis choice!!!\n"<<endl;
+                            goto Re;
+                            break;
+
+                    }
+                    break;
+            case 7:
+
+                    int Lid=0;
+                    int Password=0;
+
+                    cout<<"\n\nLogin ID :";
+                    cin>>Lid;
+
+                    cout<<"\nPassword :";
+                    cin>>Password;
+
+                    if(Lid==Login && Password==keyword)
+                    {
+
+                         int AdminVeb=0;
+
+                         OnceMore:
+
+                        cout<<"What you want to see:\n1.Account Details\n\n2.Bank Fund"<<endl;
+                        cin>>AdminVeb;
+
+                        if(AdminVeb==1)
+                        {
+                                    int See=0;
+
+                                    Yes:
+
+                                    cout << "Account Number? ";
+                                    cin >> a;
+
+                                    for (i = 0; i <= 2; i++)
+                                    {
+                                        found = C[i].AdminSearch(a);
+                                        if (found)
+                                        break;
+                                    }
+
+                                    OneMore:
+
+                                    cout<<"Want see any other account 1.Yes 2.No"<<endl;
+                                    cin>>See;
+
+                                    if(See==1)
+                                    {
+                                            goto Yes;
+                                    }
+                                    else if(See==2)
+                                    {
+                                            cout<<"Want to see any other details 1.Yes 2.No:"<<endl;
+                                            cin>>See;
+
+                                            if(See==1)
+                                            {
+                                                goto OnceMore;
+                                            }
+                                    }
+                                    else
+                                    {
+                                            cout<<"\n\nInvalid Choice!!!"<<endl;
+                                            goto OneMore;
+                                    }
+
+                        }
+
+                        else if(AdminVeb==2)
+                        {
+                                    cout<<"\n\n\t\t\t\t*!!!* Bank of satara *!!!* "<<endl;
+                                    cout<<"\n\n\n\t\t * Bank of satara Fund Details!!!"<<endl;
+                                    cout<<"\n\n\t\t   Bank Fund: "<<BankFund<<endl;
+                        }
+                        else
+                        {
+                                    cout<<"\n\n\n\n\t\t\tInvalid Choice!!!"<<endl;
+                                    goto OnceMore;
+                        }
+                    }
+        }
+    } while (ch != 5);
+
+    return 0;
+}
