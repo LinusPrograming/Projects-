@@ -1,0 +1,79 @@
+#include <iostream>
+
+using namespace std;
+
+class Base
+{
+public:
+    int i,j;
+
+    virtual void Fun()
+    {
+        cout<<"Base Fun\n";
+    }
+
+    virtual void Gun()
+    {
+        cout<<"Base Gun\n";
+    }
+
+    void Sun()
+    {
+        cout<<"Base Sun\n";
+    }
+
+};
+
+class Derived: public Base
+{
+public:
+    int i;
+
+    void Fun()
+    {
+        cout<<"Derived Fun\n";
+    }
+
+    void Gun()
+    {
+        cout<<"Derived Gun\n";
+    }
+
+    virtual void Run()
+    {
+        cout<<"Derived Run\n";
+    }
+};
+
+int main()
+{
+    Base Bobj;
+    Derived Dobj;
+
+    cout<<sizeof(Bobj)<<endl;
+    cout<<sizeof(Dobj)<<endl;
+
+    long int *Op=(long int *)(&Dobj);
+    cout<<"Base Address of Dobj:"<<Op<<endl;
+
+    long int *VPTR=(long int *)(*Op);
+    cout<<"Address of V Table:"<<VPTR<<endl;
+
+    void(*Fp)();
+
+    Fp=(void(*)())(*VPTR);
+    Fp();
+
+    //Fp=(void(*)())(*VPTR+1);        // Correction : (*VPTR+1)???
+                                     //  Aplyala VPTR Pointer madhe 1 plus karun 8 bytes pudhe jaych ahe Ani mg brackets chya
+                                    //   baher * deun to jethe point kartoy tya function la call dyaycha ahe...
+    Fp = (void(*)())(*(VPTR+1));
+    Fp();
+
+    //Fp=(void(*)())(*VPTR+2);         // Yethe segementation fault yeil karan ki Fp la aapan VTABLE chya baher chi memory assign
+                                      //  kartoy ani ji memory aapli nahich ahe ti access karayla try kartoy
+    Fp = (void(*)())(*(VPTR+2));
+    Fp();
+
+    return 0;
+}
