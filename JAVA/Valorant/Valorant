@@ -1,0 +1,407 @@
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.io.IOException;
+import java.util.concurrent.TimeUnit;
+import java.util.Date;
+
+
+class RIOTGames
+{
+    public String Username;
+    public String Password;
+    String Heros[];
+
+    {
+        Heros =new String[11];
+    }
+
+    public RIOTGames()
+    {
+        Heros[1] = "Viper";
+        Heros[2] = "Sova";
+        Heros[3] = "Reyna";
+        Heros[4] = "Astra";
+        Heros[5] = "Sage";
+        Heros[6] = "Jett"; 
+        Heros[7] = "Martis";
+        Heros[8] = "Aulus";
+        Heros[9] = "Zilong";
+        Heros[10] = "Valir";  
+    }
+
+    private class VALORANT
+    {
+        public void start(RIOTGames User1)throws IOException
+        {
+            BufferedReader Reader = new BufferedReader(new InputStreamReader(System.in));
+
+            System.out.println("\n\n\n\t\t\t<<------------------------------------< SELECT CHARACTERS >------------------------------------->>");
+
+            System.out.println("\n\t\t\t1)Viper\n\t\t\t2)Sova\n\t\t\t3)Reyna\n\t\t\t4)Astra\n\t\t\t5)Sage\n\t\t\t6)Jett\n\t\t\t7)Martis\n\t\t\t8)Aulus\n\t\t\t9)Zilong\n\t\t\t10)Valir");
+
+            System.out.print("\n\n\t\t\t>> Select Character :- ");
+            
+            int Choice = Integer.parseInt(Reader.readLine());
+
+             System.out.println("\n\n\n\t\t\t<<------------------------------------< V A L O R A N T >------------------------------------->>");
+
+            System.out.println("\n\n\n\t\t\t< "+User1.Username+" > >----->>"+User1.Heros[Choice]);
+            
+            for(int iCount=1;iCount<=4;iCount++)
+            {
+                for(int Counter=1;Counter<=3;Counter++)
+                {
+                    if(Choice<=10)
+                    {
+                        Choice++;
+                    }
+                    if(Choice>10)
+                    {
+                        Choice=1;
+                    }
+                }
+                System.out.println("\n\n\n\t\t\t<_______>    >----->> "+User1.Heros[Choice]);
+            }
+
+            try
+            {
+                System.out.print("\n\n\n\t\t\tMACHING");
+    
+                for(int count2 = 1;count2<=5;count2++)
+                {
+                    TimeUnit.SECONDS.sleep(2);
+                    System.out.print(" .");
+                }
+                   
+            } catch(InterruptedException A){}
+            
+        }
+        public void characterInfo(RIOTGames User1)throws IOException
+        {
+            int Entry;
+            BufferedReader Reader = new BufferedReader(new InputStreamReader(System.in));
+            try
+            {
+                System.out.print("\n\n\n\t\t\tLOADING");
+    
+                for(int count2 = 1;count2<=5;count2++)
+                {
+                    TimeUnit.SECONDS.sleep(1);
+                    System.out.print(" .");
+                }
+                   
+            } catch(InterruptedException A){}
+
+            System.out.println("\n\n\n\t\t\t<<------------------------------------< V A L O R A N T >------------------------------------->>");
+
+            for(int Count= 1;Count<=10;Count++)
+            {
+                System.out.println("\n\n\t\t\t>-------------->> "+User1.Heros[Count]+" <<--------------<");
+
+                System.out.println("\n\n\t\t\t <...................................>");
+                System.out.println("\t\t\t <...................................>");
+                System.out.println("\t\t\t <...................................>");
+                System.out.println("\t\t\t <...................................>");
+                System.out.println("\t\t\t <...................................>");
+                
+            }
+            do
+            {
+                System.out.print("\n\n\n\t\t\t>> Enter ( 1 ) if you want to continue :-");
+                Entry = Integer.parseInt(Reader.readLine());
+                
+            }while(Entry != 1);
+        }
+        public void shop(RIOTGames User1)throws IOException
+        {
+            int Entry;
+            BufferedReader Reader = new BufferedReader(new InputStreamReader(System.in));
+            try
+            {
+                System.out.print("\n\n\n\t\t\tLOADING");
+    
+                for(int count2 = 1;count2<=5;count2++)
+                {
+                    TimeUnit.SECONDS.sleep(1);
+                    System.out.print(" .");
+                }
+                   
+            } catch(InterruptedException A){}
+            
+            System.out.println("\n\n\n\t\t\t<<------------------------------------< V A L O R A N T >------------------------------------->>");
+            System.out.println("\n\n\t\t\t\t\t<<--------------<  LIMITED TIME OFFERS  >-------------->>");
+            
+            System.out.println("\n\n\t\t\t <...................................>");
+            System.out.println("\t\t\t <...................................>");
+            System.out.println("\t\t\t <...................................>");
+            System.out.println("\t\t\t <...................................>");
+            System.out.println("\t\t\t <...................................>");
+
+            do
+            {
+                System.out.print("\n\n\n\t\t\t>> Enter ( 1 ) if you want to continue :-");
+                Entry = Integer.parseInt(Reader.readLine());
+                
+            }while(Entry != 1);
+        }
+        public void exit()throws IOException
+        {
+            int Entry;
+            BufferedReader Reader = new BufferedReader(new InputStreamReader(System.in));
+            try
+            {
+                System.out.print("\n\n\n\t\t\tLOADING");
+    
+                for(int count2 = 1;count2<=3;count2++)
+                {
+                    TimeUnit.SECONDS.sleep(1);
+                    System.out.print(" .");
+                }
+                   
+            } catch(InterruptedException A){}
+
+            System.out.println("\n\n\n\t\t\t<<------------------------------------< V A L O R A N T >------------------------------------->>");
+
+            System.out.println("\n\n\t\t\t************************************!!! R I O T * G A M E S !!!************************************");
+                    
+            System.out.println("\n\n\t\t\t\t>---->> Failure Doesn't Mean The Game Is Over, It Means Try Again With Experience <<----<");
+
+            System.out.println("\n\n\t\t\t\t\t<<--------------<  V I S I T <-<*>-> A G A I N >-------------->>");
+            do
+            {
+                System.out.print("\n\n\n\t\t\t>> Enter ( 1 ) if you want to continue :-");
+                Entry = Integer.parseInt(Reader.readLine());
+                
+            }while(Entry != 1);
+        }
+
+        public void CreateAccount(RIOTGames User1)throws IOException
+        {
+            BufferedReader Reader = new BufferedReader(new InputStreamReader(System.in));
+
+            System.out.print("\n\n\n\n\t\t\t>> USERNAME :-  ");
+            User1.Username = Reader.readLine();
+
+            System.out.print("\n\n\t\t\t>> Password :-  ");
+            User1.Password = Reader.readLine();
+        }
+
+    } 
+    public void Account(RIOTGames User1)throws IOException
+    {
+        VALORANT id1 = new VALORANT();
+
+        id1.CreateAccount(User1);                       //178
+    }
+
+    public void logIn(RIOTGames User1)throws IOException
+    {
+        try
+        {
+            System.out.print("\n\n\n\t\t\tLOADING");
+    
+            for(int count2 = 1;count2<=5;count2++)
+            {
+                TimeUnit.SECONDS.sleep(1);
+                System.out.print(" .");
+            }
+                   
+        } catch(InterruptedException A){}
+
+        VALORANT id1 = new VALORANT();
+
+        int Choice=0;
+
+        BufferedReader Reader = new BufferedReader(new InputStreamReader(System.in)); 
+
+        do
+        {
+            System.out.println("\n\n\n\t\t\t<<---------------------------------------< P L A Y >---------------------------------------->>");
+
+            System.out.println("\n\n\n\t\t\t1 : START\n\n\t\t\t2 : CHARACTERS Info\n\n\t\t\t3 : SHOP\n\n\t\t\t4 : EXIT");
+            System.out.print("\n\n\t\t\t>> Enter your choice : ");
+            Choice = Integer.parseInt(Reader.readLine());
+
+            switch(Choice)
+            {
+                case 1 :
+
+                    try
+                    {
+                        System.out.print("\n\n\n\t\t\tLoading");
+    
+                        for(int count2 = 1;count2<=5;count2++)
+                        {
+                            TimeUnit.SECONDS.sleep(1);
+                            System.out.print(" .");
+                        }   
+                    }catch(InterruptedException A){}
+    
+                    id1.start(User1);                               //34
+                    break;
+
+                case 2 :
+
+                    id1.characterInfo(User1);                       //79
+                    break;
+
+                case 3 :
+
+                    id1.shop(User1);                                //115
+                    break;
+
+                case 4 :
+
+                    id1.exit();                                     //147
+                    break;
+
+                default :
+
+                    System.out.println("Invalid Choice !!!");
+
+            }
+        }while(Choice != 4 );
+    }
+}
+
+public class Valorant 
+{
+
+    public static void main(String Arr[]) throws IOException
+    {
+        
+        RIOTGames User1 = new RIOTGames();
+
+        int Choice=0;
+
+        BufferedReader Reader = new BufferedReader(new InputStreamReader(System.in));
+        
+        do
+        {
+
+            System.out.println("\n\n\n\t\t\t*-*-*-*-*-*-*-*-*-*-*-*-*-*- $ VALORANT $ *-*-*-*-*-*-*-*-*-*-*-*-*-*-");
+            System.out.println("\n\n\n\t\t\t>---->> Developer:- Riot Games");
+            System.out.println("\n\t\t\t>---->> Genre:-     First-Person shooter ");
+            System.out.println("\n\t\t\t>---->> Mode:-      Multiplayer video game (5 vs 5)");
+
+            System.out.println("\n\n\n\t\t\t1 : LOGIN");    
+            System.out.println("\n\n\t\t\t2 : CREATE ACCOUNT");
+            System.out.println("\n\n\t\t\t3 : EXIT");
+
+
+            System.out.print("\n\n\t\t\t>> Enter your choice : ");
+            Choice = Integer.parseInt(Reader.readLine());
+
+            switch(Choice)
+            {
+                case 1:
+
+                        try
+                        {
+                            System.out.print("\n\n\n\t\t\tLOADING");
+        
+                            for(int count2 = 1;count2<=5;count2++)
+                            {
+                                TimeUnit.SECONDS.sleep(1);
+                                System.out.print(" .");
+                            }
+                       
+                        } catch(InterruptedException A){}
+                   
+                   
+                        System.out.println("\n\n\n\t\t\t<<------------------------------------< V A L O R A N T >------------------------------------->>");
+
+                        System.out.println("\n\n\t\t\t************************************!!! R I O T * G A M E S !!!************************************");
+    
+                        System.out.println("\n\n\t\t\t<<---------------------------------------< L O G I N >---------------------------------------->>");
+    
+                        System.out.print("\n\n\n\n\t\t\t>> USERNAME : ");
+                        String iUsername = Reader.readLine();
+    
+                        System.out.print("\n\n\t\t\t>> PASSWORD : ");
+                        String iPassword =Reader.readLine();
+    
+                        if(iUsername.equals(User1.Username) && User1.Password.equals(iPassword) )
+                        {
+                        
+                            System.out.print("\n\n\t\t\t<<------- LOG IN Successful ------->>"); 
+                           
+                            User1.logIn(User1);                 //197
+    
+                        }
+                        else
+                        {
+                        
+                            System.out.println("\n\n\t\t\tWrong UserName or Password Try Again !!!!! ");
+                            try
+                            {
+                                System.out.print("\n\n\t\t\tLOADING");
+        
+                                for(int count2 = 1;count2<=3;count2++)
+                                {
+                                    TimeUnit.SECONDS.sleep(1);
+                                    System.out.print(" .");
+                                }
+                       
+                            } catch(InterruptedException A){}
+                       
+                        }
+        
+                        break;
+
+                case 2:
+
+                    try
+                    {
+                        System.out.print("\n\n\n\t\t\tLOADING");
+        
+                        for(int count2 = 1;count2<=5;count2++)
+                        {
+                            TimeUnit.SECONDS.sleep(1);
+                            System.out.print(" .");
+                        }
+                       
+                    } catch(InterruptedException A){}
+    
+                    System.out.println("\n\n\n\t\t\t<<------------------------------------< V A L O R A N T >------------------------------------->>");
+
+                    System.out.println("\n\n\t\t\t************************************!!! R I O T * G A M E S !!!************************************");
+                    System.out.println("\n\n\t\t\t\t\t<<--------------< C R E A T E  AN  A C C O U N T >-------------->>");
+        
+                    User1.Account(User1);                   //190
+        
+                    System.out.print("\n\n\t\t\t<<------- Account Created ------->>");
+                    try
+                    {
+                        
+                        System.out.print("\n\n\t\t\tLOADING");
+                        for(int count2 = 1;count2<=5;count2++)
+                        {
+                            TimeUnit.SECONDS.sleep(1);
+                            System.out.print(" .");
+                        }
+                   
+                    } catch(InterruptedException A){}
+        
+                    break;
+
+                case 3:
+
+                    System.out.println("\n\n\n\t\t\t<<------------------------------------< V A L O R A N T >------------------------------------->>");
+
+                    System.out.println("\n\n\t\t\t************************************!!! R I O T * G A M E S !!!************************************");
+                    System.out.println("\n\n\t\t\t<<------------------------------------< T H A N K <-*-> Y O U >------------------------------------->>");
+                    break;
+
+                default:
+        
+                    System.out.println("\n\n\n\t\t\t!!!Invalid !!!");
+                    System.out.println("\n\n\t\t\t!!!Retry!!!");
+        
+                    break;
+
+            }
+    }while(Choice != 3);
+    }
+}
+
